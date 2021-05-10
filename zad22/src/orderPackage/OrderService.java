@@ -12,23 +12,30 @@ import java.util.*;
 
 public class OrderService {
 
-    public static final String SMTH_WRONG = "-";
+//    public static final String SMTH_WRONG = "-";
 
     public String addOrder() {
-        System.out.println("Złóż zamówienie.");
+
 
         List<String> listOfOrder = new ArrayList<>();
         Set<List<String>> orderData = new HashSet<>();
         Scanner input = new Scanner(System.in);
-        do {
-            listOfOrder = new ArrayList();
-            if (!listOfOrder.equals(SMTH_WRONG)) {
-                orderData.add(listOfOrder);
+        int[] order = new int[1];
+        System.out.println("Złóż zamówienie.");
+//        do {
+        for(int i=0; i< listOfOrder.size(); i++){
+            order[i]= input.nextInt();
+        }
+            for (int i : order){
+                System.out.println("Zamówienie przyjęte, aktualny status: " + OrderStatus.UTWORZONE + ". Podaj ID użytkownika.");
             }
-        } while (!listOfOrder.equals(SMTH_WRONG));
+ //           if (!listOfOrder.equals(SMTH_WRONG)) {
+ //               orderData.add(listOfOrder);
+ //           }
+ //       } while (!listOfOrder.equals(SMTH_WRONG));
+//        input.close();
 
-
-        System.out.println("Zamówienie przyjęte, aktualny status: " + OrderStatus.UTWORZONE + ". Podaj ID użytkownika.");
+//        System.out.println("Zamówienie przyjęte, aktualny status: " + OrderStatus.UTWORZONE + ". Podaj ID użytkownika.");
         Scanner id = new Scanner(System.in);
         int newId = id.nextInt();
         if (newId > 0 && newId < 21) {
@@ -69,6 +76,7 @@ public class OrderService {
                 System.out.println("Podane ID jest nieprawidłowe, zacznij od nowa.");
             }
         }
+
         return null;
     }
 }

@@ -3,9 +3,13 @@ package com.company;
 import customerPackage.CustomerService;
 import orderPackage.OrderService;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
+    public static final String NO_MORE = "-";
+
     public static void main(String[] args) {
 
         System.out.println("Witaj użytkowniku. Za pomocą numeru, wybierz co chciałbyś zrobić, korzystając z przedstawionego menu:\n" +
@@ -26,9 +30,24 @@ public class Main {
         int menuNumber = scan.nextInt();
         switch (menuNumber) {
             case 1:
-                CustomerService customerService = new CustomerService();
-                System.out.println(customerService.addCustomer());
+                String customer;
+                Set<String> customers = new HashSet<>();
+                Scanner input = new Scanner(System.in);
+                do {
+                    System.out.println("Podaj imie: ");
+                    customer = input.next();
+                    if (!customer.equals(NO_MORE)) {
+                        customers.add(customer);
+                    }
+                } while (!customer.equals(NO_MORE));
+
+
+                System.out.println("Wprowadziles " + customers.size() + " unikalnych imion.");
                 break;
+
+//                CustomerService customerService = new CustomerService();
+//                System.out.println(customerService.addCustomer());
+
 
             case 2:
                 System.out.println("Jeżeli chcesz usunąć konto klienta, podaj jego ID.");
