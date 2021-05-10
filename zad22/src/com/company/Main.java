@@ -1,6 +1,7 @@
 package com.company;
 
 import customerPackage.CustomerService;
+import orderPackage.Order;
 import orderPackage.OrderService;
 
 import java.util.Scanner;
@@ -62,7 +63,8 @@ public class Main {
                 break;
 
             case 9:
-                System.out.println("Dotychczas złożone zamówienia: ");
+                OrderService allOrd = new OrderService();
+                System.out.println(allOrd.allOrders());
                 break;
 
             case 10:

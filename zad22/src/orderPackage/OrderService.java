@@ -15,7 +15,7 @@ public class OrderService {
     public static final String SMTH_WRONG = "-";
 
     public String addOrder() {
-        System.out.println("Złóż zamówienie.");
+        System.out.println("Złóż zamówienie, po zakończeniu zamówienia dopisz znak -");
 
         List<String> listOfOrder = new ArrayList<>();
         Set<List<String>> orderData = new HashSet<>();
@@ -28,17 +28,11 @@ public class OrderService {
         } while (!listOfOrder.equals(SMTH_WRONG));
 
 
-        System.out.println("Zamówienie przyjęte, aktualny status: " + OrderStatus.UTWORZONE + ". Podaj ID użytkownika.");
-        Scanner id = new Scanner(System.in);
-        int newId = id.nextInt();
-        if (newId > 0 && newId < 21) {
-            System.out.println("Twoje ID przypisane do zamówienia: " + newId + ".");
-        } else {
-            System.out.println("Podane ID jest nieprawidłowe, zacznij od nowa.");
-        }
+        System.out.println("Zamówienie przyjęte, aktualny status: ");
 
         return null;
     }
+
 
     public String deleteOrder() {
         System.out.println("W celu usunięcia zamówienia, podaj ID użytkownika.");
@@ -46,6 +40,7 @@ public class OrderService {
         Scanner id = new Scanner(System.in);
         int newId = id.nextInt();
         if (newId > 0 && newId < 21) {
+            final boolean remove = orderData.remove(deleteOrder());
             System.out.println("Twoje zamówienie przypisane do numeru ID: " + newId + " obecnie posiada status: " + OrderStatus.ANULOWANE + ".");
         } else {
             System.out.println("Podane ID jest nieprawidłowe, zacznij od nowa.");
@@ -53,6 +48,7 @@ public class OrderService {
 
         return null;
     }
+
 
     public String editOrder() {
         System.out.println("W celu edytowania zamówienia, podaj ID użytkownika.");
@@ -71,4 +67,12 @@ public class OrderService {
         }
         return null;
     }
+
+
+    public String allOrders() {
+        System.out.println("Dotychczas złożone zamówienia: " + orderData);
+        return null;
+    }
+
+
 }

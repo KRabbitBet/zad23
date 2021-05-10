@@ -35,7 +35,10 @@ public class Person {
     public int getPhoneNumber () {
         return phoneNumber;
     }
-    public int getId (){ return id;}
+    public int getId () {
+        return id;
+    }
+
     public String getCity () {
         return city;
     }
@@ -48,7 +51,9 @@ public class Person {
     public int getFlatNumber () {
         return flatNumber;
     }
-    public int getPostCode (){ return postCode;}
+    public int getPostCode (){
+        return postCode;
+    }
 
 
 }
